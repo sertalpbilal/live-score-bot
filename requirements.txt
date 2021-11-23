@@ -1,0 +1,8 @@
+aiohttp
+watchdog
+asyncio
+python-dotenv
+requests
+discord
+lxml
+

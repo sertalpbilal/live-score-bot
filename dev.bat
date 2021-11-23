@@ -1,0 +1,1 @@
+watchmedo auto-restart python app.py
