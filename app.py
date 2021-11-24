@@ -91,7 +91,8 @@ async def main():
                 channel = bot.get_channel(912383883935375440) # Bot test channel
                 embed = discord.Embed(title=f"{match['home_name']} - {match['away_name']}", description="", color=discord.Color.green())
                 embed.add_field(name="Event", value=event['event'], inline=True)
-                embed.add_field(name="Min", value=match['liveTime'], inline=True)
+                if str(match['liveTime']) != '':
+                    embed.add_field(name="Min", value=match['liveTime'], inline=True)
                 embed.add_field(name="Score", value=f"{match['home_score']} - {match['away_score']}", inline=True)
                 embed.add_field(name="Link", value=f"https://www.fotmob.com/match/{match['match_id']}", inline=True)
                 
