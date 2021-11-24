@@ -47,8 +47,8 @@ def parse_status_data(snapshot, date):
     leagues = snapshot['leagues']
     data = {'date': date, 'matches': {}}
     for league in leagues:
-        if league.get('parentLeagueName', league.get('name')) not in league_list:
-            continue
+        # if league.get('parentLeagueName', league.get('name')) not in league_list:
+        #     continue
         for match in league['matches']:
             match_id = match['id']
             data['matches'][match_id] = {
