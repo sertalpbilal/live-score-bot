@@ -1,8 +1,7 @@
-aiohttp
-watchdog
-asyncio
-python-dotenv
-requests
-discord
-lxml
+aiohttp>=3.7.4.post0
+watchdog>=2.1.6
+python-dotenv>=0.17.1
+requests>=2.25.1
+discord>=1.7.3
+lxml>=4.6.3
 
