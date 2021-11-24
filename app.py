@@ -48,8 +48,8 @@ def parse_status_data(snapshot, date):
     leagues = snapshot['leagues']
     data = {'date': date, 'matches': {}}
     for league in leagues:
-        # if league.get('parentLeagueName', league.get('name')) not in league_list:
-        #     continue
+        if league.get('parentLeagueName', league.get('name')) not in league_list:
+            continue
         for match in league['matches']:
             match_id = match['id']
             data['matches'][match_id] = {
@@ -88,7 +88,7 @@ async def main():
             update_text = f"{event['event']}! {match['liveTime']} {match['home_name']} - {match['away_name']}: {match['home_score']} - {match['away_score']}"
             if event['event'] != 'liveTime':
                 print('*** PUSH TO SERVER! ', str(event))
-                channel = bot.get_channel(912383883935375440) # Bot test channel
+                channel = bot.get_channel(912375274430169109) #bot.get_channel(912383883935375440) # Bot test channel
                 embed = discord.Embed(title=f"{match['home_name']} - {match['away_name']}", description="", color=discord.Color.green())
                 embed.add_field(name="Event", value=event['event'], inline=True)
                 if str(match['liveTime']) != '':
