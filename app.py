@@ -10,9 +10,7 @@ import os
 status_url = "https://www.fotmob.com/matches?date={date}"
 game_url = "https://www.fotmob.com/matchDetails?matchId={match_id}"
 
-league_list = ['Champions League', 'Europa League', 'Premier League']
-league_parent_ids = [73, 42] # Europa League and Champ League
-league_ids = [47] # Prem. League
+league_ids = [47, 42, 73] # Premier League - Champ League - Europa League
 
 debug = False
 
@@ -52,7 +50,7 @@ def parse_status_data(snapshot, date):
     for league in leagues:
         # if league.get('parentLeagueName', league.get('name')) not in league_list:
         #     continue
-        if not (league['leagueId'] in league_ids or league.get('parentLeagueId', '') in league_parent_ids):
+        if league.get('primaryId', '') not in league_ids:
             continue
         for match in league['matches']:
             match_id = match['id']
